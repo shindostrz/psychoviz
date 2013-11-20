@@ -17,6 +17,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rails'
   gem 'quiet_assets'
+  gem 'foreman'
 end
 
 gem 'rails_12factor', group: :production
@@ -49,3 +50,4 @@ gem 'jquery-rails'
 
 # To use debugger
 gem 'debugger'
+gem 'omniauth-facebook'
