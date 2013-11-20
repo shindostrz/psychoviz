@@ -16,6 +16,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'pry'
   gem 'pry-rails'
+  gem 'quiet_assets'
 end
 
 gem 'rails_12factor', group: :production
@@ -47,4 +48,4 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'
