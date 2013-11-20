@@ -1,0 +1,222 @@
+have_struct_member: checking for rb_method_entry_t.called_id in method.h... -------------------- no
+
+"xcrun clang -o conftest -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/universal-darwin13 -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -g -Os -pipe conftest.c  -L. -L/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib -L. -L/usr/local/lib       -lruby.2.0.0  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"xcrun clang -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/universal-darwin13 -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -g -Os -pipe     -c conftest.c"
+conftest.c:3:10: fatal error: 'method.h' file not found
+#include <method.h>
+         ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <method.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_method_entry_t*)0)->called_id - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_struct_member: checking for rb_control_frame_t.method_id in method.h... -------------------- no
+
+"xcrun clang -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/universal-darwin13 -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -g -Os -pipe     -c conftest.c"
+conftest.c:3:10: fatal error: 'method.h' file not found
+#include <method.h>
+         ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <method.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_control_frame_t*)0)->method_id - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_struct_member: checking for rb_method_entry_t.called_id in method.h... -------------------- no
+
+"xcrun clang -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/universal-darwin13 -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0 -I. -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby-2.0.0-p247  -g -Os -pipe     -c conftest.c"
+conftest.c:3:10: fatal error: 'method.h' file not found
+#include <method.h>
+         ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <method.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_method_entry_t*)0)->called_id - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_struct_member: checking for rb_control_frame_t.method_id in method.h... -------------------- no
+
+"xcrun clang -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/universal-darwin13 -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0 -I. -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby-2.0.0-p247  -g -Os -pipe     -c conftest.c"
+conftest.c:3:10: fatal error: 'method.h' file not found
+#include <method.h>
+         ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <method.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_control_frame_t*)0)->method_id - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_struct_member: checking for rb_method_entry_t.called_id in method.h... -------------------- yes
+
+"xcrun clang -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/universal-darwin13 -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0 -I. -I/Users/imogen/ga/projects/psychoviz/vendor/bundle/gems/debugger-ruby_core_source-1.2.3/lib/debugger/ruby_core_source/ruby-2.0.0-p247  -g -Os -pipe     -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <method.h>
+ 4: 
+ 5: /*top*/
+ 6: int s = (char *)&((rb_method_entry_t*)0)->called_id - (char *)0;
+ 7: int main(int argc, char **argv)
+ 8: {
+ 9:   if (argc > 1000000) {
+10:     printf("%p", &s);
+11:   }
+12: 
+13:   return 0;
+14: }
+/* end */
+
+--------------------
+
+have_header: checking for vm_core.h... -------------------- yes
+
+"xcrun clang -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/universal-darwin13 -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0 -I. -I/Users/imogen/ga/projects/psychoviz/vendor/bundle/gems/debugger-ruby_core_source-1.2.3/lib/debugger/ruby_core_source/ruby-2.0.0-p247  -g -Os -pipe     -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <vm_core.h>
+/* end */
+
+--------------------
+
+have_header: checking for iseq.h... -------------------- no
+
+"xcrun clang -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/universal-darwin13 -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/backward -I/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0 -I. -I/Users/imogen/ga/projects/psychoviz/vendor/bundle/gems/debugger-ruby_core_source-1.2.3/lib/debugger/ruby_core_source/ruby-2.0.0-p247  -g -Os -pipe     -c conftest.c"
+In file included from conftest.c:3:
+/Users/imogen/ga/projects/psychoviz/vendor/bundle/gems/debugger-ruby_core_source-1.2.3/lib/debugger/ruby_core_source/ruby-2.0.0-p247/iseq.h:20:40: error: unknown type name 'NODE'
+VALUE rb_iseq_compile_node(VALUE self, NODE *node);
+                                       ^
+/Users/imogen/ga/projects/psychoviz/vendor/bundle/gems/debugger-ruby_core_source-1.2.3/lib/debugger/ruby_core_source/ruby-2.0.0-p247/iseq.h:21:37: error: unknown type name 'rb_iseq_t'; did you mean 'rb_fdset_t'?
+int rb_iseq_translate_threaded_code(rb_iseq_t *iseq);
+                                    ^~~~~~~~~
+                                    rb_fdset_t
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/intern.h:286:3: note: 'rb_fdset_t' declared here
+} rb_fdset_t;
+  ^
+In file included from conftest.c:3:
+/Users/imogen/ga/projects/psychoviz/vendor/bundle/gems/debugger-ruby_core_source-1.2.3/lib/debugger/ruby_core_source/ruby-2.0.0-p247/iseq.h:22:30: error: unknown type name 'rb_iseq_t'; did you mean 'rb_fdset_t'?
+VALUE rb_iseq_build_from_ary(rb_iseq_t *iseq, VALUE locals, VALUE args,
+                             ^~~~~~~~~
+                             rb_fdset_t
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/intern.h:286:3: note: 'rb_fdset_t' declared here
+} rb_fdset_t;
+  ^
+In file included from conftest.c:3:
+/Users/imogen/ga/projects/psychoviz/vendor/bundle/gems/debugger-ruby_core_source-1.2.3/lib/debugger/ruby_core_source/ruby-2.0.0-p247/iseq.h:27:32: error: unknown type name 'rb_iseq_t'; did you mean 'rb_fdset_t'?
+VALUE rb_iseq_parameters(const rb_iseq_t *iseq, int is_proc);
+                               ^~~~~~~~~
+                               rb_fdset_t
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/intern.h:286:3: note: 'rb_fdset_t' declared here
+} rb_fdset_t;
+  ^
+In file included from conftest.c:3:
+/Users/imogen/ga/projects/psychoviz/vendor/bundle/gems/debugger-ruby_core_source-1.2.3/lib/debugger/ruby_core_source/ruby-2.0.0-p247/iseq.h:29:36: error: unknown type name 'rb_iseq_t'; did you mean 'rb_fdset_t'?
+unsigned int rb_iseq_line_no(const rb_iseq_t *iseq, size_t pos);
+                                   ^~~~~~~~~
+                                   rb_fdset_t
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/intern.h:286:3: note: 'rb_fdset_t' declared here
+} rb_fdset_t;
+  ^
+In file included from conftest.c:3:
+/Users/imogen/ga/projects/psychoviz/vendor/bundle/gems/debugger-ruby_core_source-1.2.3/lib/debugger/ruby_core_source/ruby-2.0.0-p247/iseq.h:36:1: error: unknown type name 'rb_iseq_t'; did you mean 'rb_fdset_t'?
+rb_iseq_t *rb_method_get_iseq(VALUE body);
+^~~~~~~~~
+rb_fdset_t
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/intern.h:286:3: note: 'rb_fdset_t' declared here
+} rb_fdset_t;
+  ^
+In file included from conftest.c:3:
+/Users/imogen/ga/projects/psychoviz/vendor/bundle/gems/debugger-ruby_core_source-1.2.3/lib/debugger/ruby_core_source/ruby-2.0.0-p247/iseq.h:37:1: error: unknown type name 'rb_iseq_t'; did you mean 'rb_fdset_t'?
+rb_iseq_t *rb_proc_get_iseq(VALUE proc, int *is_proc);
+^~~~~~~~~
+rb_fdset_t
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby/intern.h:286:3: note: 'rb_fdset_t' declared here
+} rb_fdset_t;
+  ^
+In file included from conftest.c:3:
+/Users/imogen/ga/projects/psychoviz/vendor/bundle/gems/debugger-ruby_core_source-1.2.3/lib/debugger/ruby_core_source/ruby-2.0.0-p247/iseq.h:103:11: error: unknown type name 'rb_compile_option_t'
+    const rb_compile_option_t *option;
+          ^
+8 errors generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <iseq.h>
+/* end */
+
+--------------------
+
