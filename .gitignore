@@ -14,10 +14,10 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+<<<<<<< HEAD
 .DS_Store
 .env
 
 # Ignore vendor bundle
 vendor/bundle
 Procfile
-

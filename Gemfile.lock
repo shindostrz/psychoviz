@@ -153,7 +153,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  coffee-rails
+  coffee-rails (~> 3.2.1)
   ejs
   foreman
   jquery-rails
