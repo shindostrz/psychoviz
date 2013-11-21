@@ -1,9 +1,6 @@
 class QuizController < ApplicationController
   def index
     @questions = Quiz.all
-  end
-
-  def show
-
+    render :json => { @questions }
   end
 end
