@@ -12,4 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require_self
 //= require_tree .
+
+  $(document).ready(function(){
+  function scrollToAnchor(anchor){
+    var aTag = $("a[name='"+ anchor +"']");
+    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+  }
+
+  $("#about").click(function() {
+    scrollToAnchor('about');
+  });
+
+});
