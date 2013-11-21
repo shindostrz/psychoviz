@@ -45,4 +45,7 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
+
+# gem 'debugger'
+
 gem 'omniauth-facebook', '1.4.0'
