@@ -15,6 +15,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'pry-rails'
   gem 'quiet_assets'
+  gem 'foreman'
 end
 
 # Gems used only for assets and not required
@@ -44,4 +45,7 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
+
 # gem 'debugger'
+
+gem 'omniauth-facebook', '1.4.0'
