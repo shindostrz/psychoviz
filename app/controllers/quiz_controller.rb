@@ -1,5 +1,9 @@
 class QuizController < ApplicationController
   def index
-    @questions = Quiz.all.each { |i| i.question }
+    @questions = Quiz.all
+  end
+
+  def show
+
   end
 end
