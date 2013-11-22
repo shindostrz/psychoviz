@@ -1,12 +1,12 @@
-<h3>Question <%= q +1 %></h1>
+<h3>Question <%= q %></h1>
 <div>
-  <h4><%= quiz[q]["question"] %>
+  <h4><%= quiz[q-1]["question"] %>
 <p>
   <form>
-    <input type="radio" name="answer_a"><%= quiz[q]["answer_a"] %></input><br>
-    <input type="radio" name="answer_b"><%= quiz[q]["answer_b"] %></input>
-    <button id="next">Next<button>
-    <button class="md-close">Close me!</button>
+    <input type="radio" class="answer1" name="answer_a" value="true" checked><%= quiz[q-1]["answer_a"] %></input><br><br>
+    <input type="radio" class="answer2" name="answer_a" value="false"><%= quiz[q-1]["answer_b"] %></input>
+<!--     <button class="next">Next</button>
+    <button class="md-close">Close me!</button> -->
   </form>
 </p>
 </div>
