@@ -19,6 +19,12 @@
 
 $(function(){
 
+  $("#start_button").click(function(){
+    $.get('/quiz.json').done(function(data){
+      console.log(data)
+    });
+  })
+
   $("#next").click(function(){
     $(".md-close").click();
     setTimeout(function(){
@@ -26,13 +32,4 @@ $(function(){
     }, 500);
   });
 
-  $("#start_button").click(function(event){
-    event.preventDefault(event)
-    $.getJSON({
-      url: '/quiz.json',
-    }).done(function(data){
-      console.log(data)
-    })
-
-  })
 });
