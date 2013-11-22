@@ -12,23 +12,15 @@ quiz = (q, answer_a) ->
   if $.inArray(q, e_i) != -1
     if answer_a = true
       e += 1
-    else
-      i += 1
   else if $.inArray(q, s_n) != -1
     if answer_a = true
       s += 1
-    else
-      n += 1
   else if $.inArray(q, t_f) != -1
     if answer_a = true
       t += 1
-    else
-      f += 1
   else if $.inArray(q, j_p) != -1
     if answer_a = true
       j += 1
-    else
-      p += 1
 
 q = 1
 for q in all_qs
