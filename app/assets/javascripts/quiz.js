@@ -19,17 +19,24 @@
 
 $(function(){
 
+  q = 0;
+
+  var update_form;
+
   $("#start_button").click(function(){
     $.get('/quiz.json').done(function(data){
-      console.log(data)
+      quiz = data["quiz"];
+      // $("#question_content").prepend(quiz[q]["question"]);
+      update_form = JST["templates/questions"](quiz[q]);
+      $("#question_content").html(update_form);
+      $("#next").click(function(e){
+        e.preventDefault();
+        if (q < 70) {
+          q++;
+          update_form = JST["templates/questions"](quiz[q]);
+          $("#question_content").html(update_form);
+        }
+      });
+      });
     });
-  })
-
-  $("#next").click(function(){
-    $(".md-close").click();
-    setTimeout(function(){
-      $(".md-trigger").click();
-    }, 500);
-  });
-
 });
