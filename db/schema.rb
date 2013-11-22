@@ -23,17 +23,17 @@ ActiveRecord::Schema.define(:version => 20131121201544) do
   end
 
   create_table "scores", :force => true do |t|
-    t.boolean  "e"
-    t.boolean  "i"
-    t.boolean  "s"
-    t.boolean  "n"
-    t.boolean  "t"
-    t.boolean  "f"
-    t.boolean  "j"
-    t.boolean  "p"
-    t.string   "type"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "e"
+    t.integer  "i"
+    t.integer  "s"
+    t.integer  "n"
+    t.integer  "t"
+    t.integer  "f"
+    t.integer  "j"
+    t.integer  "p"
+    t.string   "personality_type"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.integer  "user_id"
   end
 

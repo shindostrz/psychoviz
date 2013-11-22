@@ -43,14 +43,14 @@ $("#next").click(function(e){
       $(".md-close").click();
       $(".md-trigger").click();
       answer_a = $("#answer_a").val();
-      answer_b = $("#answer_b").val();
       app.score(q, answer_a);
       q++;
-      if (q-1 < 70) {
+      if (q <= 70) {
         update_form_again = JST["templates/questions"](quiz[q-1]);
         $("#question_content").html(update_form_again);
       } else {
-        $.post( "/scores", { e: app.e, f: app.f, i: app.i, j: app.j, n: app.n, p: app.p, s: app.s, t: app.t } ).done(function(){
+        params = { e: app.e, f: app.f, i: app.i, j: app.j, n: app.n, p: app.p, s: app.s, t: app.t};
+        $.post( "/scores", { data: params }).done(function(){
         $('#some_div').append('#chart_div');
         $(".md-close").click();
         });
