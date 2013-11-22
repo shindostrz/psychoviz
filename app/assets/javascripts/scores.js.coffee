@@ -34,6 +34,3 @@ q = 1
 for q in all_qs
   quiz q answer_a
   q += 1
-
-
-
