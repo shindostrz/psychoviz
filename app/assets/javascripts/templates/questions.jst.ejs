@@ -1,5 +1,12 @@
-<h1><%= quiz.question %></h1>
+<h3>Question <%= q %></h1>
+<div>
+  <h4><%= question[q] %>
 <p>
-  <%= quiz.answer_a %>
-  <%= quiz.answer_b %>
+  <form>
+    <input type="radio" name="answer_a"><%= question[q]["answer_a"] %></input>
+    <input type="radio" name="answer_b"><%= question[q]["answer_b"] %></input>
+    <button id="next">Next<button>
+    <button class="md-close">Close me!</button>
+  </form>
 </p>
+</div>
