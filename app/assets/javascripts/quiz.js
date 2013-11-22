@@ -1,10 +1,15 @@
 $(document).ready(function(){
-    $('#button').on('click', function(){
+    $('#start_button').on('click', function(){
         $.ajax({
             url: '/quiz',
             method: 'GET'
         }).done(function(data){
             console.log(data);
+            var question = data;
+            var question1 = question[:q_num][1]
+              var update_form;
+              update_form = JST["templates/questions"](question1);
+              return $("#question_content").append(update_form);
         });
     });
 });
