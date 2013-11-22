@@ -1,0 +1,13 @@
+<h3>Question <%= q %></h1>
+<div>
+  <h4><%= question[q] %>
+<p>
+  <form>
+    <input type="radio" name="answer_a"><%= question[q]["answer_a"] %></input>
+    <input type="radio" name="answer_b"><%= question[q]["answer_b"] %></input>
+    <button id="next">Next<button>
+    <button class="md-close">Close me!</button>
+  </form>
+</p>
+</div>
+
