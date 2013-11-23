@@ -18,6 +18,10 @@
 // });
 
 $(function(){
+  function scrollToAnchor(anchor){
+    var aTag = $("a[name='"+ anchor +"']");
+    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+  }
 
   q = 1;
 
@@ -51,8 +55,11 @@ $("#next").click(function(e){
       } else {
         params = { e: app.e, f: app.f, i: app.i, j: app.j, n: app.n, p: app.p, s: app.s, t: app.t};
         $.post( "/scores", { data: params }).done(function(){
-        $('#some_div').append('#chart_div');
         $(".md-close").click();
+        scrollToAnchor('results');
+        results_display = JST["templates/results"]();
+        $('#myChart').html(results_display);
+
         });
       }
     }

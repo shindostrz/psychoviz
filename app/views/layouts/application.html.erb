@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Psychoviz</title>
+  <%= include_gon %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -76,11 +77,12 @@
         </div>
     </section>
 
-<a name="results"></a>
+
 
     <section class="padding bck color results" style>
         <div class="row margin-bottom">
             <div class="column_10 offset_1 text center">
+                 <a name="results"></a>
                 <h1 class="color book theme">Your results</h1>
 
              </div>
@@ -88,11 +90,8 @@
 
         <div class="row ">
             <div class="column_4 offset_4 text center">
-                <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/CognitiveFunctions.png/600px-CognitiveFunctions.png" class="responsive rounded margin-bottom">
-                <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="http://platform.twitter.com/widgets/follow_button.1384994725.html#_=1385015181048&amp;dnt=true&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=thecarljung&amp;show_count=true&amp;show_screen_name=true&amp;size=m" class="twitter-follow-button  twitter-follow-button" title="Twitter Follow Button" data-twttr-rendered="true" style="width: 208px; height: 20px;"></iframe>
-                <script id="twitter-wjs" src="http://platform.twitter.com/widgets.js"></script><script>
-                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-                </script>
+                <canvas id="myChart" width="500" height="500">
+                </canvas>
             </div>
         </div>
     </section>

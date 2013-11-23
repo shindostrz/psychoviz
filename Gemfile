@@ -9,6 +9,7 @@ gem 'rails', '3.2.14'
 #gem 'sqlite3'
 gem 'pg'
 gem 'ejs'
+gem 'gon'
 
 group :development, :test do
   gem 'rspec-rails'
