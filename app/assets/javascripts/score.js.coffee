@@ -10,28 +10,24 @@ app.t_f = [4, 5, 11, 12, 18, 19, 25, 26, 32, 33, 39, 40, 46, 47, 53, 54, 60, 61,
 app.j_p = [6, 7, 13, 14, 20, 21, 27, 28, 34, 35, 41, 42, 48, 49, 55, 56, 62, 63, 69, 70]
 
 app.e = 0
+app.i = 10
 app.s = 0
+app.n = 20
 app.t = 0
+app.f = 20
 app.j = 0
+app.p = 20
 
 app.score = (q, answer_a) ->
-  if $.inArray(q, app.e_i) != -1
-    if answer_a = true
-      app.e += 1
-      app.i = 10 - app.e
-  else if $.inArray(q, app.s_n) != -1
-    if answer_a = true
-      app.s += 1
-      app.n = 20 - app.s
-  else if $.inArray(q, app.t_f) != -1
-    if answer_a = true
-      app.t += 1
-      app.f = 20 - app.t
-  else if $.inArray(q, app.j_p) != -1
-    if answer_a = true
-      app.j += 1
-      app.p = 20 - app.j
-
-
-
-
+  if q in app.e_i and answer_a is true
+    app.e += 1
+    app.i -= 1
+  else if q in app.s_n and answer_a is true
+    app.s += 1
+    app.n -= 1
+  else if q in app.t_f and answer_a is true
+    app.t += 1
+    app.f -= 1
+  else if q in app.j_p and answer_a is true
+    app.j += 1
+    app.p -= 1

@@ -38,6 +38,8 @@ $(function(){
     });
   });
 
+var update_form_again;
+
 $("#next").click(function(e){
   if ($(".answer1").is(":checked") === false && $(".answer2").is(":checked") === false) {
       e.preventDefault();
@@ -46,20 +48,19 @@ $("#next").click(function(e){
       e.preventDefault();
       $(".md-close").click();
       $(".md-trigger").click();
-      answer_a = $("#answer_a").val();
+      answer_a = $(".answer1").is(":checked");
       app.score(q, answer_a);
       q++;
+      params = { e: app.e, f: app.f, i: app.i, j: app.j, n: app.n, p: app.p, s: app.s, t: app.t};
       if (q <= 70) {
         update_form_again = JST["templates/questions"](quiz[q-1]);
         $("#question_content").html(update_form_again);
       } else {
-        params = { e: app.e, f: app.f, i: app.i, j: app.j, n: app.n, p: app.p, s: app.s, t: app.t};
         $.post( "/scores", { data: params }).done(function(){
         $(".md-close").click();
         scrollToAnchor('results');
         results_display = JST["templates/results"]();
         $('#myChart').html(results_display);
-
         });
       }
     }
