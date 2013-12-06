@@ -1,15 +1,15 @@
 class CreateScores < ActiveRecord::Migration
   def change
     create_table :scores do |t|
-      t.boolean :e
-      t.boolean :i
-      t.boolean :s
-      t.boolean :n
-      t.boolean :t
-      t.boolean :f
-      t.boolean :j
-      t.boolean :p
-      t.string :type
+      t.integer :e
+      t.integer :i
+      t.integer :s
+      t.integer :n
+      t.integer :t
+      t.integer :f
+      t.integer :j
+      t.integer :p
+      t.string :personality_type
 
       t.timestamps
     end

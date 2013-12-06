@@ -18,26 +18,49 @@
 // });
 
 $(function(){
+  function scrollToAnchor(anchor){
+    var aTag = $("a[name='"+ anchor +"']");
+    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+  }
 
-  $("#start_button").click(function(){
+  q = 1;
+
+  var update_form;
+
+  $("#start_button").click(function(e){
     $.get('/quiz.json').done(function(data){
-      console.log(data);
+      quiz = data["quiz"];
+      // index = (q-1);
+      // $("#question_content").prepend(quiz[q]["question"]);
+      update_form = JST["templates/questions"](quiz[q-1]);
+      // console.log(index);
+      $("#question_content").html(update_form);
     });
   });
 
-  $("#end_button").click(function(){
-    $.post( "/", { e: e, f: f, i: i, j: j, n: n, p: p, s: s, t: t } ).done(function(){
-      $('#some_div').append('#chart_div');
+$("#next").click(function(e){
+  if ($(".answer1").is(":checked") === false && $(".answer2").is(":checked") === false) {
+      e.preventDefault();
+      alert("Please choose one answer");
+  } else {
+      e.preventDefault();
       $(".md-close").click();
-    });
-  });
-
-  $("#next").click(function(){
-    $(".md-close").click();
-    setTimeout(function(){
       $(".md-trigger").click();
-    }, 500);
+      answer_a = $("#answer_a").val();
+      app.score(q, answer_a);
+      q++;
+      if (q <= 70) {
+        update_form_again = JST["templates/questions"](quiz[q-1]);
+        $("#question_content").html(update_form_again);
+      } else {
+        params = { e: app.e, f: app.f, i: app.i, j: app.j, n: app.n, p: app.p, s: app.s, t: app.t};
+        $.post( "/scores", { data: params }).done(function(){
+        $(".md-close").click();
+        scrollToAnchor('results');
+        results_display = JST["templates/results"]();
+        $('#myChart').html(results_display);
+        });
+      }
+    }
   });
-
 });
-
