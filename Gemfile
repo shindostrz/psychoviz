@@ -15,6 +15,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'pry-rails'
+  gem 'pry-remote'
   gem 'quiet_assets'
   gem 'foreman'
 end
