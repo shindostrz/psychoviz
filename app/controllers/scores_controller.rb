@@ -1,5 +1,4 @@
 class ScoresController < ApplicationController
-
   def create
     results_hash = params[:data]
     results = results_hash.sort_by { |k,v| v }
