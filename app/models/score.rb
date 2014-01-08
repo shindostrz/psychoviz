@@ -10,4 +10,5 @@ class Score < ActiveRecord::Base
     result.push(e, f, i, j, n, p, s, t)
     type = result.sort!.slice(4..7)
   end
+
 end
