@@ -24,5 +24,4 @@
     scrollToAnchor('about');
   });
 
-
 });
