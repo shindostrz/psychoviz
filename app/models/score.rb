@@ -3,12 +3,12 @@ class Score < ActiveRecord::Base
 
   belongs_to :user
 
-  protected
+  # protected
 
-  def self.calc_type
-    result = []
-    result.push(e, f, i, j, n, p, s, t)
-    type = result.sort!.slice(4..7)
-  end
+  # def self.calc_type
+  #   result = []
+  #   result.push(e, f, i, j, n, p, s, t)
+  #   type = result.sort!.slice(4..7)
+  # end
 
 end
