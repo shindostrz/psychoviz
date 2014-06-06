@@ -1,9 +1,4 @@
 $(function(){
-  function scrollToAnchor(anchor){
-    var aTag = $("a[name='"+ anchor +"']");
-    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
-  }
-
   q = 1;
 
   var update_form;
@@ -38,10 +33,10 @@ $("#next").click(function(e){
         $("#question_content").html(update_form_again);
       } else {
         $.post( "/scores", { data: params }).done(function(){
-        $(".md-close").click();
-        scrollToAnchor('results');
-        results_display = JST["templates/results"]();
-        $('#myChart').html(results_display);
+          $(".md-close").click();
+          scrollToAnchor('results');
+          results_display = JST["templates/results"]();
+          $('#myChart').html(results_display);
         });
       }
     }
