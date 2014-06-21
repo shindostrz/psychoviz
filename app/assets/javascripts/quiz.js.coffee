@@ -26,25 +26,25 @@ window.Quiz =
       if $(".answer1").is(":checked") is false and $(".answer2").is(":checked") is false
         alert "Please choose one answer"
       else
-        if @q <= 70
+        if @q < 70
           @nextQuestion()
         else
           @finishQuiz()
+
+  finishQuiz: ->
+    $(".md-close").click()
+    $.post("/scores",
+      data: @finalResultsParams
+    ).done ->
+      $(".md-close").click()
+      Quiz.scrollToAnchor "results"
+      $("#myChart").html JST["templates/results"]()
 
   scrollToAnchor: (anchor) ->
     aTag = $("a[name='" + anchor + "']")
     $("html,body").animate
       scrollTop: aTag.offset().top
     , "slow"
-
-  finishQuiz: ->
-    $.post("/scores",
-      data: @finalResultsParams
-    ).done ->
-      $(".md-close").click()
-      scrollToAnchor "results"
-      results_display = JST["templates/results"]()
-      $("#myChart").html results_display
 
   initListeners: ->
     # About button
