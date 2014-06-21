@@ -3,7 +3,7 @@ window.Quiz =
     @q = 1
     @initListeners()
     @quizFlow()
-    @finalResultsParams = {e: app.e, f: app.f, i: app.i, j: app.j, n: app.n, p: app.p, s: app.s, t: app.t}
+    @finalResultsParams = {e: app.e * 2, f: app.f, i: app.i * 2, j: app.j, n: app.n, p: app.p, s: app.s, t: app.t}
     @startQuiz()
 
   updateModal: ->
