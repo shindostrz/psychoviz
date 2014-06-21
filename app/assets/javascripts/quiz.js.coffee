@@ -3,7 +3,6 @@ window.Quiz =
     @q = 1
     @initListeners()
     @quizFlow()
-    @finalResultsParams = {e: app.e * 2, f: app.f, i: app.i * 2, j: app.j, n: app.n, p: app.p, s: app.s, t: app.t}
     @startQuiz()
 
   updateModal: ->
@@ -29,12 +28,12 @@ window.Quiz =
         if @q < 70
           @nextQuestion()
         else
-          @finishQuiz()
+          @finishQuiz(app.e, app.i, app.s, app.n, app.t, app.f, app.j, app.p)
 
-  finishQuiz: ->
+  finishQuiz: (e, i, s, n, t, f, j, p)->
     $(".md-close").click()
     $.post("/scores",
-      data: @finalResultsParams
+      data: {e: e * 2, f: f, i: i * 2, j: j, n: n, p: p, s: s, t: t}
     ).done ->
       $(".md-close").click()
       Quiz.scrollToAnchor "results"
