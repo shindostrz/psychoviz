@@ -1,39 +1,32 @@
 window.Quiz =
   init: ->
-    window.q = 1
+    @q = 1
     @initListeners()
     @quizFlow()
     @finalResultsParams = {e: app.e, f: app.f, i: app.i, j: app.j, n: app.n, p: app.p, s: app.s, t: app.t}
     @startQuiz()
 
-  updateModal: (questions)->
-    question = JST["templates/questions"](window.quiz[window.q - 1])
-    $("#question_content").html question
+  updateModal: ->
+    $("#question_content").html JST["templates/questions"](Quiz.quiz[@q - 1])
 
-  startQuiz: =>
-    $("#start_button").click  =>
+  startQuiz: ->
+    $("#start_button").click  ->
       $.get("/quiz.json").done (data) ->
-        window.quiz = data["quiz"]
-        console.log quiz
-        question = JST["templates/questions"](window.quiz[window.q - 1])
-        $("#question_content").html question
+        Quiz.quiz = data["quiz"]
+        Quiz.updateModal()
 
-  nextQuestion: =>
-    $(".md-close").click()
-    $(".md-trigger").click()
+  nextQuestion: ->
     answer_a = $(".answer1").is(":checked")
-    app.score window.q, answer_a
-    window.q++
-    console.log window.q
-    question = JST["templates/questions"](window.quiz[window.q - 1])
-    $("#question_content").html question
+    app.score @q, answer_a
+    @q++
+    @updateModal()
 
   quizFlow: ->
     $("#next").click =>
       if $(".answer1").is(":checked") is false and $(".answer2").is(":checked") is false
         alert "Please choose one answer"
       else
-        if window.q <= 70
+        if @q <= 70
           @nextQuestion()
         else
           @finishQuiz()
