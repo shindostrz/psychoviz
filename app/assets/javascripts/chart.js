@@ -224,7 +224,7 @@ window.Chart = function(context){
       angleLineWidth : 1,
       pointLabelFontFamily : "'Arial'",
       pointLabelFontStyle : "normal",
-      pointLabelFontSize : 12,
+      pointLabelFontSize : 24,
       pointLabelFontColor : "#666",
       pointDot : true,
       pointDotRadius : 3,
