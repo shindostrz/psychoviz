@@ -1,0 +1,28 @@
+%section.padding.bck.light
+  .row
+    .column_10.offset_1.text.center.book
+      %h1
+        %strong> Psycho
+        Viz
+      %br/
+      %h3.text.book Ready to take the quiz?
+      %br/
+      %h5 Cool! But first, let's get a little more info from you. The answers will improve your score's accuracy.
+  .row.margin-top.margin-bottom.text.center
+    .column_6.offset_3.form.subscribe
+      %input.email{:autocomplete => "off", :oldautocomplete => "remove", :placeholder => "Enter your age", :type => "number"}
+      %select
+        %option{:value => "Female"} Female
+        %option{:value => "Male"} Male
+        %option{:value => "Other"} Other
+    .row{:id => "abId0.7010507672093809", :style => "margin-top: 30px;"}
+      %button#start_button.md-trigger.large.column_4{"data-modal" => "modal-1"} Start Quiz
+
+#wrapper
+  #modal-1.md-modal.md-effect-2
+    .md-content
+      #question_content
+      %button#next.large Next
+      %br/
+      %button.md-close.large Close me!
+.md-overlay

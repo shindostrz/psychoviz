@@ -1,0 +1,74 @@
+!!!
+%html
+  %head
+    %title Psychoviz
+    = include_gon
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+
+    - if current_user
+
+      %header.bck.dark.header
+        Signed in as
+        = succeed "!" do
+          %strong= current_user.name
+        = link_to "Sign out", signout_path, id: "sign_out", style: "float: right;"
+      = yield
+
+    - else
+
+      %section.bck.darkest.landing.text.center.color.white{:id => "abId0.5089036475401372"}
+        .row
+          .column_10.offset_1
+            %h1
+              %strong> Psycho
+              Viz
+            %h3.margin-bottom Take our quiz. Get your personality type based on the Myers-Briggs Type Indicator.
+        .row{:id => "abId0.7010507672093809"}
+          %form{:action => "/auth/facebook"}
+            %button#sign_in.offset_4.large.column_4 Sign in with Facebook
+        %h5.text.book You need to sign-in in order to access the quiz.
+      / End of 'else' statement
+
+    %footer.bck.dark.padding
+      .row.margin-top.margin-bottom
+        .column_5
+          %a#about.text.bold.big{:href => "#about"}
+            %span.icon.group>
+            About
+        .column_4
+          %a.text.bold.big{:href => "https://github.com/negomi/psychoviz.git"}
+            %span.icon.github>
+            GitHub
+
+    %a{:name => "results"}
+
+    %section.padding.bck.color.results{:style => "display:none;"}
+      .row.margin-bottom
+        .column_10.offset_1.text.center
+          %h1.color.book.theme Your results
+      .row
+        .column_10.offset_1.text.center
+          #personality-type{:style => "font-size:2em;"}
+          %canvas#myChart{:height => "500", :width => "500"}
+
+    %section.padding.bck.color
+      .row.margin-bottom
+        .column_10.offset_1.text.center
+          %a{:name => "about"}
+            %h1.color.book.theme The Test
+          %h3.text.thin
+            The Myers-Briggs Type Indicator (MBTI) assessment is a psychometric questionnaire designed to measure psychological preferences in how people perceive the world and make decisions.These preferences were extrapolated from the typological theories proposed by Carl Gustav Jung and first published in his 1921 book Psychological Types. Jung theorized that there are four principal psychological functions by which we experience the world:
+            = succeed "." do
+              %strong sensation, intuition, feeling, and thinking
+            One of these four functions is dominant most of the time.
+
+      .row
+        .column_4.offset_4.text.center
+          %img.responsive.rounded.margin-bottom{:src => "http://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/CognitiveFunctions.png/600px-CognitiveFunctions.png"}
+            %iframe#twitter-widget-0.twitter-follow-button.twitter-follow-button{:allowtransparency => "true", "data-twttr-rendered" => "true", :frameborder => "0", :scrolling => "no", :src => "http://platform.twitter.com/widgets/follow_button.1384994725.html#_=1385015181048&amp;dnt=true&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=thecarljung&amp;show_count=true&amp;show_screen_name=true&amp;size=m", :style => "width: 208px; height: 20px;", :title => "Twitter Follow Button"}
+            %script#twitter-wjs{:src => "http://platform.twitter.com/widgets.js"}
+            :javascript
+              !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
