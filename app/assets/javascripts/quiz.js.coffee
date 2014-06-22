@@ -14,24 +14,22 @@ window.Quiz =
         Quiz.quiz = data["quiz"]
         Quiz.updateModal()
 
-  nextQuestion: ->
-    answer_a = $(".answer1").is(":checked")
-    app.score @q, answer_a
-    @q++
-    @updateModal()
-
   quizFlow: ->
     $("#next").click =>
       if $(".answer1").is(":checked") is false and $(".answer2").is(":checked") is false
         alert "Please choose one answer"
       else
+        answer_a = $(".answer1").is(":checked")
+        app.score @q, answer_a
         if @q < 70
-          @nextQuestion()
+          @q++
+          @updateModal()
         else
           @finishQuiz(app.e, app.i, app.s, app.n, app.t, app.f, app.j, app.p)
 
   finishQuiz: (e, i, s, n, t, f, j, p)->
     $(".md-close").click()
+    [gon.e, gon.i, gon.s, gon.n, gon.t, gon.f, gon.j, gon.p] = [e*2, i*2, s, n, t, f, j, p]
     $.post("/scores",
       data: {e: e * 2, f: f, i: i * 2, j: j, n: n, p: p, s: s, t: t}
     ).done ->
