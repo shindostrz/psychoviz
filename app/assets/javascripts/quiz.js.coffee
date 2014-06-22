@@ -25,13 +25,19 @@ window.Quiz =
           @q++
           @updateModal()
         else
-          @finishQuiz(app.e, app.i, app.s, app.n, app.t, app.f, app.j, app.p)
+          @finishQuiz(app.e*2, app.i*2, app.s, app.n, app.t, app.f, app.j, app.p)
 
   finishQuiz: (e, i, s, n, t, f, j, p)->
     $(".md-close").click()
-    [gon.e, gon.i, gon.s, gon.n, gon.t, gon.f, gon.j, gon.p] = [e*2, i*2, s, n, t, f, j, p]
+    [gon.e, gon.i, gon.s, gon.n, gon.t, gon.f, gon.j, gon.p] = [e, i, s, n, t, f, j, p]
+    personality_type = []
+    if e>i then personality_type.push("E") else personality_type.push("I")
+    if s>n then personality_type.push("S") else personality_type.push("N")
+    if t>f then personality_type.push("T") else personality_type.push("F")
+    if j>p then personality_type.push("J") else personality_type.push("P")
+    $("#personality-type").html(personality_type)
     $.post("/scores",
-      data: {e: e * 2, f: f, i: i * 2, j: j, n: n, p: p, s: s, t: t}
+      data: {e: e, f: f, i: i, j: j, n: n, p: p, s: s, t: t, personality_type: personality_type}
     ).done ->
       $(".md-close").click()
       Quiz.scrollToAnchor "results"
