@@ -22,6 +22,8 @@ class ApplicationController < ActionController::Base
       gon.p = current_user.score.p
       gon.personality_type = current_user.score.personality_type
       gon.user_score = current_user.score
+    else
+      gon.e, gon.i, gon.s, gon.n, gon.t, gon.f, gon.j, gon.p = 0, 0, 0, 0, 0, 0, 0, 0
     end
   end
 
