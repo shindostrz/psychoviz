@@ -8,4 +8,6 @@ Psychoviz::Application.routes.draw do
 
   resources :quiz, :sessions, :scores
 
+  get '/friends', to: 'quiz#get_friends'
+
 end
