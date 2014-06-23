@@ -45,12 +45,16 @@ window.Quiz =
     , "slow", "swing", func
 
   initListeners: ->
-    # About button
     $('#about').click =>
       @scrollToAnchor 'about'
+    $('#find-friends').click =>
+      @getFriends()
 
   getFriends: ->
+    $("#find-friends").hide()
+    $("#loading").show()
     $.get("/friends.json").done (data) ->
+      $("#loading").hide()
       console.log data.friends
       window.friends = data.friends
       for friend, i in friends
