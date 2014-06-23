@@ -18,6 +18,8 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'pry-rails'
   gem 'pry-remote'
+  gem 'pry-stack_explorer'
+  gem 'pry-debugger'
   gem 'quiet_assets'
   gem 'foreman'
 end
