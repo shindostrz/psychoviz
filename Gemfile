@@ -11,6 +11,7 @@ gem 'pg'
 gem 'ejs'
 gem 'gon'
 gem 'haml'
+gem "koala", "~> 1.10.0rc"
 
 group :development, :test do
   gem 'rspec-rails'
