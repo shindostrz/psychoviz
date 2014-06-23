@@ -49,5 +49,16 @@ window.Quiz =
     $('#about').click =>
       @scrollToAnchor 'about'
 
+  getFriends: ->
+    $.get("/friends.json").done (data) ->
+      console.log data.friends
+      friends = data.friends
+      for friend in friends
+        $("#friends").append "<a href='#'>#{friend['name']}</a>"
+
+  devTest: ->
+    for i in [0...70]
+      $('#next').click();
+
 jQuery ->
   Quiz.init()
