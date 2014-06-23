@@ -55,11 +55,9 @@ window.Quiz =
     $("#loading").show()
     $.get("/friends.json").done (data) ->
       $("#loading").hide()
-      console.log data.friends
-      window.friends = data.friends
+      window.friends = data
       for friend, i in friends
-        console.log friend.score
-        $("#friends").append "<a id='#{i}' href='#' class='friend-link' onclick='return false;''>#{friend.name}</a>"
+        $("#friends").append "<a id='#{i}' href='#' class='friend-link' onclick='return false;''><img src='#{friend.image}'><div>#{friend.name}</div></a>"
       Quiz.compareFriend()
 
   compareFriend: ->
