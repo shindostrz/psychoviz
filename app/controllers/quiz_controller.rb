@@ -13,8 +13,10 @@ class QuizController < ApplicationController
     all_friends = @graph.get_connections("me", "friends")
     user_friends = []
     all_friends.each do |friend|
-      if User.find_by_uid(friend["id"])
-        user_friends << friend
+      current_friend = User.find_by_uid(friend["id"])
+      if current_friend
+        current_friend[:score] = current_friend.score
+        user_friends << current_friend
       end
       user_friends
     end
