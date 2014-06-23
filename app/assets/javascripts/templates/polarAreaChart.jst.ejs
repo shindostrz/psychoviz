@@ -1,0 +1,38 @@
+<script>
+  var data = [
+    {
+      value : <%= gon.e %>,
+      color: "#D97041"
+    },
+    {
+      value : <%= gon.i%>,
+      color: "#C7604C"
+    },
+    {
+      value : <%= gon.s%>,
+      color: "#21323D"
+    },
+    {
+      value : <%= gon.n%>,
+      color: "#9D9B7F"
+    },
+    {
+      value : <%= gon.t%>,
+      color: "#7D4F6D"
+    },
+    {
+      value : <%= gon.f%>,
+      color: "#584A5E"
+    },
+    {
+      value : <%= gon.j%>,
+      color: "#BADA55"
+    },
+    {
+      value : <%= gon.p%>,
+      color: "#9D9B7F"
+    }
+  ]
+  var ctx = document.getElementById("myChart").getContext("2d");
+  var myChart = new Chart(ctx).PolarArea(data);
+</script>
