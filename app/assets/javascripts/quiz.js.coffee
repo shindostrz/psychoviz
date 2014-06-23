@@ -57,7 +57,7 @@ window.Quiz =
       $("#loading").hide()
       window.friends = data
       for friend, i in friends
-        $("#friends").append "<a id='#{i}' href='#' class='friend-link' onclick='return false;''><img src='#{friend.image}'><div>#{friend.name}</div></a>"
+        $("#friends").append "<a id='#{i}' href='#' class='friend-link' onclick='return false;''><img src='#{friend.image}'><div>#{friend.name} (#{friend.score.personality_type})</div></a>"
       Quiz.compareFriend()
 
   compareFriend: ->
