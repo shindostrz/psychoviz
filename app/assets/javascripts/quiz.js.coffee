@@ -61,6 +61,7 @@ window.Quiz =
       $("#results").animate
         width: "608px",
         "margin-left": "0"
+        1000
         ->
           $("#friends").slideDown()
       Quiz.compareFriend()
@@ -81,6 +82,7 @@ window.Quiz =
   # Moves the test to the end with the default answer selected
   devTest: ->
     for i in [0...70]
+      $(".answer1").click()
       $('#next').click()
 
 jQuery ->
