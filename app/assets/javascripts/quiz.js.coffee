@@ -58,6 +58,11 @@ window.Quiz =
       window.friends = data
       for friend, i in friends
         $("#friends").append "<a id='#{i}' href='#' class='friend-link' onclick='return false;''><img src='#{friend.image}'><div>#{friend.name} (#{friend.score.personality_type})</div></a>"
+      $("#results").animate
+        width: "608px",
+        "margin-left": "0"
+        ->
+          $("#friends").slideDown()
       Quiz.compareFriend()
 
   compareFriend: ->
