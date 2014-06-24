@@ -1,0 +1,6 @@
+<% for friend, i in friends: %>
+  <a id='<%= i %>' href='#' class='friend-link' onclick='return false;''>
+    <img src='<%= friend.image %>'>
+    <div><%= friend.name %> (<%= friend.score.personality_type %>)</div>
+  </a>
+<% end %>
