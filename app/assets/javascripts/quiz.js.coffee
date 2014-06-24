@@ -56,8 +56,8 @@ window.Quiz =
     $.get("/friends.json").done (data) ->
       $("#loading").hide()
       window.friends = data
-      for friend, i in friends
-        $("#friends").append "<a id='#{i}' href='#' class='friend-link' onclick='return false;''><img src='#{friend.image}'><div>#{friend.name} (#{friend.score.personality_type})</div></a>"
+      Quiz.scrollToAnchor 'results'
+      $("#friends").html JST["templates/friends"]()
       $("#results").animate
         width: "608px",
         "margin-left": "0"
