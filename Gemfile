@@ -6,11 +6,12 @@ gem 'rails', '3.2.14'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-#gem 'sqlite3'
+gem 'jquery-rails'
 gem 'pg'
 gem 'ejs'
 gem 'gon'
 gem 'haml'
+gem 'omniauth-facebook', '1.4.0'
 gem "koala", "~> 1.10.0rc"
 
 group :development, :test do
@@ -36,7 +37,6 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -54,4 +54,3 @@ gem 'jquery-rails'
 
 # gem 'debugger'
 
-gem 'omniauth-facebook', '1.4.0'
