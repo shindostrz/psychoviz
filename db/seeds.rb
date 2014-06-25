@@ -33,7 +33,7 @@ Quiz.create(q_num: 24, question: 'Are visionaries:', answer_a: 'somewhat annoyin
 Quiz.create(q_num: 25, question: 'Are you more often:', answer_a: 'a cool-headed person', answer_b: 'a warm-hearted person')
 Quiz.create(q_num: 26, question: 'Is it worse to be:', answer_a: 'unjust', answer_b: 'merciless')
 Quiz.create(q_num: 27, question: 'Should one usually let events occur:', answer_a: 'by careful selection and choice', answer_b: 'randomly and by chance')
-Quiz.create(q_num: 28, question: 'Do you feel better about:', answer_a: 'having purchase', answer_b: 'having the option to buy')
+Quiz.create(q_num: 28, question: 'Do you feel better about:', answer_a: 'having purchased', answer_b: 'having the option to buy')
 Quiz.create(q_num: 29, question: 'In company do you:', answer_a: 'initiate conversation', answer_b: 'wait to be approached')
 Quiz.create(q_num: 30, question: 'Common sense is:', answer_a: 'rarely questionable', answer_b: 'frequently questionable')
 Quiz.create(q_num: 31, question: 'Children often do not:', answer_a: 'make themselves useful enough', answer_b: 'exercise their fantasy enough')
