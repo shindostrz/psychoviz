@@ -32,7 +32,7 @@ window.Quiz =
     $("#personality-type").html personality_type
     $(".md-close").click()
     Quiz.scrollToAnchor "results", ->
-      $(".results").slideDown 400, ->
+      $(".results").slideDown 800, ->
         $("#myChart").html JST["templates/results"]()
     $.post("/scores",
       data: {e: e, f: f, i: i, j: j, n: n, p: p, s: s, t: t, personality_type: personality_type}
@@ -82,7 +82,7 @@ window.Quiz =
   # Moves the test to the end with the default answer selected
   devTest: ->
     for i in [0...70]
-      $(".answer1").click()
+      if Math.random() > 0.5 then $(".answer1").click() else $(".answer2").click()
       $('#next').click()
 
 jQuery ->
