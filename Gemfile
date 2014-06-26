@@ -35,6 +35,7 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier'
+  gem 'eco'
 end
 
 
