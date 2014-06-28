@@ -63,9 +63,9 @@ window.Quiz =
 
   getFriends: ->
     $("#find-friends").hide()
-    $("#loading").show()
+    $(".loading").show()
     $.get("/friends.json").done (data) ->
-      $("#loading").hide()
+      $(".loading").hide()
       window.friends = data
       Quiz.scrollToAnchor 'results'
       $("#friends").html JST["templates/friends"]()
