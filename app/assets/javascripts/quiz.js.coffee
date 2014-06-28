@@ -78,13 +78,18 @@ window.Quiz =
       Quiz.compareFriend()
 
   compareFriend: ->
-    $(".friend-link").click ->
+    $(".friend-link").click ()->
       # Highlight only the clicked friend link
-      $('.friend-link').css 'color', '#1abc9c'
-      $('.friend-link:not(#'+this.id+')').css 'color', '#fff'
-      clickedFriendScore = friends[this.id]["score"]
-      Quiz.addFriendToChart(clickedFriendScore)
-      myChart = new Chart(ctx).Radar(data);
+      if $(this).css("color") is "rgb(26, 188, 156)"
+        $(this).css("color", "#fff")
+        data.datasets.pop()
+        myChart = new Chart(ctx).Radar(data);
+      else
+        $(this).css 'color', 'rgb(26, 188, 156)'
+        $(".friend-link:not(##{this.id})").css 'color', '#fff'
+        clickedFriendScore = friends[this.id]["score"]
+        Quiz.addFriendToChart(clickedFriendScore)
+        myChart = new Chart(ctx).Radar(data);
 
   addFriendToChart: (score)->
     if data.datasets.length is 2 then data.datasets.pop()
