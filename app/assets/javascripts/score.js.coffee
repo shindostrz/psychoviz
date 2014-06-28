@@ -32,11 +32,11 @@ app.score = (q, answer_a) ->
     app.j += 1
     app.p -= 1
 
-app.personalityType = (finalScore) ->
-  [gon.e, gon.i, gon.s, gon.n, gon.t, gon.f, gon.j, gon.p] = [finalScore.e, finalScore.i, finalScore.s, finalScore.n, finalScore.t, finalScore.f, finalScore.j, finalScore.p]
+app.personalityType = (score) ->
+  [gon.e, gon.i, gon.s, gon.n, gon.t, gon.f, gon.j, gon.p] = [score.e, score.i, score.s, score.n, score.t, score.f, score.j, score.p]
   type = []
-  if finalScore.e>finalScore.i then type.push("E") else type.push("I")
-  if finalScore.s>finalScore.n then type.push("S") else type.push("N")
-  if finalScore.t>finalScore.f then type.push("T") else type.push("F")
-  if finalScore.j>finalScore.p then type.push("J") else type.push("P")
+  if score.e>score.i then type.push("E") else type.push("I")
+  if score.s>score.n then type.push("S") else type.push("N")
+  if score.t>score.f then type.push("T") else type.push("F")
+  if score.j>score.p then type.push("J") else type.push("P")
   return type
