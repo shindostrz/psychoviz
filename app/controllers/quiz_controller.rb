@@ -9,8 +9,7 @@ class QuizController < ApplicationController
   end
 
   def get_friends
-    @graph = Koala::Facebook::API.new(current_user.oauth_token)
-    all_friends = @graph.get_connections("me", "friends")
+    all_friends = current_user.facebook.get_connections("me", "friends")
     user_friends = []
     all_friends.each do |friend|
       current_friend = User.find_by_uid(friend["id"])
