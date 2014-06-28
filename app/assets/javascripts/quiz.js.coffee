@@ -79,16 +79,22 @@ window.Quiz =
 
   compareFriend: ->
     $(".friend-link").click ->
+      # Highlight only the clicked friend link
+      $('.friend-link').css 'color', '#1abc9c'
+      $('.friend-link:not(#'+this.id+')').css 'color', '#fff'
       clickedFriendScore = friends[this.id]["score"]
-      if data.datasets.length is 2 then data.datasets.pop()
-      data.datasets.push({
-       fillColor : "rgba(26, 188, 156,0.5)",
-       strokeColor : "rgba(26, 188, 156,1)",
-       pointColor : "rgba(26, 188, 156,1)",
-       pointStrokeColor : "#fff",
-       data : [clickedFriendScore["e"], clickedFriendScore["i"], clickedFriendScore["s"], clickedFriendScore["n"], clickedFriendScore["t"], clickedFriendScore["f"], clickedFriendScore["j"], clickedFriendScore["p"]]
-      });
+      Quiz.addFriendToChart(clickedFriendScore)
       myChart = new Chart(ctx).Radar(data);
+
+  addFriendToChart: (score)->
+    if data.datasets.length is 2 then data.datasets.pop()
+    data.datasets.push({
+     fillColor : "rgba(26, 188, 156,0.5)",
+     strokeColor : "rgba(26, 188, 156,1)",
+     pointColor : "rgba(26, 188, 156,1)",
+     pointStrokeColor : "#fff",
+     data : [score["e"], score["i"], score["s"], score["n"], score["t"], score["f"], score["j"], score["p"]]
+    });
 
   # Moves the test to the end with the default answer selected
   devTest: ->
