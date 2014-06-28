@@ -1,9 +1,22 @@
 window.Quiz =
   init: ->
+    @previousUser()
     @q = 1
     @initListeners()
     @quizFlow()
     @startQuiz()
+
+  previousUser: ->
+    if gon.personalityType?
+      $('#previous-results').show()
+      $('#previous-results').click ->
+        Quiz.finishQuiz(gon.personalityType)
+
+  initListeners: ->
+    $('#about').click =>
+      @scrollToAnchor 'about'
+    $('#find-friends').click =>
+      @getFriends()
 
   updateModal: ->
     $("#question_content").html JST["templates/questions"](Quiz.quiz[@q - 1])
@@ -25,17 +38,21 @@ window.Quiz =
           @q++
           @updateModal()
         else
-          @finishQuiz(app.e*2, app.i*2, app.s, app.n, app.t, app.f, app.j, app.p)
+          finalScore = {e: app.e*2, i: app.i*2, s: app.s, n: app.n, t: app.t, f: app.f, j: app.j, p: app.p}
+          personalityType = app.personalityType(finalScore)
+          @finishQuiz(personalityType)
+          @postScores(finalScore, personalityType)
 
-  finishQuiz: (e, i, s, n, t, f, j, p) ->
-    personality_type = app.personality_type(e, i, s, n, t, f, j, p)
-    $("#personality-type").html personality_type
+  finishQuiz: (personalityType) ->
+    $("#personality-type").html personalityType
     $(".md-close").click()
     Quiz.scrollToAnchor "results", ->
       $(".results").slideDown 800, ->
         $("#myChart").html JST["templates/results"]()
+
+  postScores: (finalScore, personalityType) ->
     $.post("/scores",
-      data: {e: e, f: f, i: i, j: j, n: n, p: p, s: s, t: t, personality_type: personality_type}
+      data: {e: finalScore.e, f: finalScore.f, i: finalScore.i, j: finalScore.j, n: finalScore.n, p: finalScore.p, s: finalScore.s, t: finalScore.t, personalityType: personalityType}
     )
 
   scrollToAnchor: (anchor, func) ->
@@ -43,12 +60,6 @@ window.Quiz =
     $("html,body").animate
       scrollTop: aTag.offset().top
     , "slow", "swing", func
-
-  initListeners: ->
-    $('#about').click =>
-      @scrollToAnchor 'about'
-    $('#find-friends').click =>
-      @getFriends()
 
   getFriends: ->
     $("#find-friends").hide()
