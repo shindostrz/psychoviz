@@ -20,3 +20,11 @@
   margin-bottom: 4px;
 }
 
+#friends a:hover{
+  color:#fff;
+}
+
+.active-friend {
+  color: #1abc9c;
+}
+
