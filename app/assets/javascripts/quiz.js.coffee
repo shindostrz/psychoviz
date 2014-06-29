@@ -48,7 +48,7 @@ window.Quiz =
     $(".md-close").click()
     Quiz.scrollToAnchor "results", ->
       $(".results").slideDown 800, ->
-        $("#myChart").html JST["templates/results"]()
+        app.setChart(app.data)
 
   postScores: (finalScore, personalityType) ->
     $.post("/scores",
@@ -82,18 +82,18 @@ window.Quiz =
       # Highlight only the clicked friend link
       if $(this).css("color") is "rgb(26, 188, 156)"
         $(this).css("color", "#fff")
-        data.datasets.pop()
-        myChart = new Chart(ctx).Radar(data);
+        app.data.datasets.pop()
       else
         $(this).css 'color', 'rgb(26, 188, 156)'
         $(".friend-link:not(##{this.id})").css 'color', '#fff'
         clickedFriendScore = friends[this.id]["score"]
         Quiz.addFriendToChart(clickedFriendScore)
-        myChart = new Chart(ctx).Radar(data);
+
+      app.setChart(app.data)
 
   addFriendToChart: (score)->
-    if data.datasets.length is 2 then data.datasets.pop()
-    data.datasets.push({
+    if app.data.datasets.length is 2 then app.data.datasets.pop()
+    app.data.datasets.push({
      fillColor : "rgba(26, 188, 156,0.5)",
      strokeColor : "rgba(26, 188, 156,1)",
      pointColor : "rgba(26, 188, 156,1)",
