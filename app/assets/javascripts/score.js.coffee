@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-window.app =
+window.Score =
 
   e_i: [1, 8, 15, 22, 29, 36, 43, 50, 57, 64]
   s_n: [2, 3, 9, 10, 16, 17, 23, 24, 30, 31, 37, 38, 44, 45, 51, 52, 58, 59, 65, 66]
@@ -18,19 +18,19 @@ window.app =
   j: 0
   p: 20
 
-  score: (q, answer_a) ->
-    if q in app.e_i and answer_a is true
-      app.e += 1
-      app.i -= 1
-    else if q in app.s_n and answer_a is true
-      app.s += 1
-      app.n -= 1
-    else if q in app.t_f and answer_a is true
-      app.t += 1
-      app.f -= 1
-    else if q in app.j_p and answer_a is true
-      app.j += 1
-      app.p -= 1
+  runningScore: (q, answer_a) ->
+    if q in Score.e_i and answer_a is true
+      Score.e += 1
+      Score.i -= 1
+    else if q in Score.s_n and answer_a is true
+      Score.s += 1
+      Score.n -= 1
+    else if q in Score.t_f and answer_a is true
+      Score.t += 1
+      Score.f -= 1
+    else if q in Score.j_p and answer_a is true
+      Score.j += 1
+      Score.p -= 1
 
   personalityType: (score) ->
     [gon.e, gon.i, gon.s, gon.n, gon.t, gon.f, gon.j, gon.p] = [score.e, score.i, score.s, score.n, score.t, score.f, score.j, score.p]
@@ -59,6 +59,7 @@ window.app =
         gon.p
       ]
     ]
+
   setChart: (chartData)->
     if ($(window).width() < 600)
       $("#myChart").attr(

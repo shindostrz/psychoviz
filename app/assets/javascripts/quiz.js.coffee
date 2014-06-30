@@ -33,13 +33,13 @@ window.Quiz =
         alert "Please choose one answer"
       else
         answer_a = $(".answer1").is(":checked")
-        app.score @q, answer_a
+        Score.runningScore @q, answer_a
         if @q < 70
           @q++
           @updateModal()
         else
-          finalScore = {e: app.e*2, i: app.i*2, s: app.s, n: app.n, t: app.t, f: app.f, j: app.j, p: app.p}
-          personalityType = app.personalityType(finalScore)
+          finalScore = {e: Score.e*2, i: Score.i*2, s: Score.s, n: Score.n, t: Score.t, f: Score.f, j: Score.j, p: Score.p}
+          personalityType = Score.personalityType(finalScore)
           @finishQuiz(personalityType)
           @postScores(finalScore, personalityType)
 
@@ -48,7 +48,7 @@ window.Quiz =
     $(".md-close").click()
     Quiz.scrollToAnchor "results", ->
       $(".results").slideDown 800, ->
-        app.setChart(app.data)
+        Score.setChart(Score.data)
 
   postScores: (finalScore, personalityType) ->
     $.post("/scores",
@@ -82,18 +82,18 @@ window.Quiz =
       # Highlight only the clicked friend link
       if $(this).css("color") is "rgb(26, 188, 156)"
         $(this).css("color", "#fff")
-        app.data.datasets.pop()
+        Score.data.datasets.pop()
       else
         $(this).css 'color', 'rgb(26, 188, 156)'
         $(".friend-link:not(##{this.id})").css 'color', '#fff'
         clickedFriendScore = friends[this.id]["score"]
         Quiz.addFriendToChart(clickedFriendScore)
 
-      app.setChart(app.data)
+      Score.setChart(Score.data)
 
   addFriendToChart: (score)->
-    if app.data.datasets.length is 2 then app.data.datasets.pop()
-    app.data.datasets.push({
+    if Score.data.datasets.length is 2 then Score.data.datasets.pop()
+    Score.data.datasets.push({
      fillColor : "rgba(26, 188, 156,0.5)",
      strokeColor : "rgba(26, 188, 156,1)",
      pointColor : "rgba(26, 188, 156,1)",
