@@ -9,7 +9,11 @@ window.Quiz =
   previousUser: ->
     if gon.personalityType?
       $('#previous-results').show()
-      $('#previous-results').click ->
+      $('#previous-results').click (e) ->
+        # This stops the chart from loading multiple times after taking the test againand clicking
+        # previous-results again. Still don't know why it's calling Score.setChart twice though.
+        e.stopImmediatePropagation()
+        Score.init()
         Quiz.finishQuiz(gon.personalityType)
 
   initListeners: ->
@@ -23,6 +27,8 @@ window.Quiz =
 
   startQuiz: ->
     $("#start_button").click  ->
+      Score.init()
+      Quiz.init()
       $.get("/quiz.json").done (data) ->
         Quiz.quiz = data["quiz"]
         Quiz.updateModal()
@@ -36,19 +42,24 @@ window.Quiz =
         Score.runningScore @q, answer_a
         if @q < 70
           @q++
-          @updateModal()
         else
           finalScore = {e: Score.e*2, i: Score.i*2, s: Score.s, n: Score.n, t: Score.t, f: Score.f, j: Score.j, p: Score.p}
           personalityType = Score.personalityType(finalScore)
           @finishQuiz(personalityType)
           @postScores(finalScore, personalityType)
+          Quiz.init()
+        @updateModal()
 
   finishQuiz: (personalityType) ->
     $("#personality-type").html personalityType
     $(".md-close").click()
     Quiz.scrollToAnchor "results", ->
       $(".results").slideDown 800, ->
-        Score.setChart(Score.data)
+        # Prevents the chart insertion from making the callback repeat - might be
+        # unnecessary if the chart logic is changed
+        $(this).clearQueue()
+        Score.init()
+        Score.setChart(Score.chartSettings)
 
   postScores: (finalScore, personalityType) ->
     $.post("/scores",
@@ -80,20 +91,20 @@ window.Quiz =
   compareFriend: ->
     $(".friend-link").click ()->
       # Highlight only the clicked friend link
-      if $(this).css("color") is "rgb(26, 188, 156)"
+      if $(this).css("color") is "rgb(26, 188, 156)" and Score.chartSettings.datasets.length == 2
         $(this).css("color", "#fff")
-        Score.data.datasets.pop()
+        Score.chartSettings.datasets.pop()
       else
         $(this).css 'color', 'rgb(26, 188, 156)'
         $(".friend-link:not(##{this.id})").css 'color', '#fff'
         clickedFriendScore = friends[this.id]["score"]
         Quiz.addFriendToChart(clickedFriendScore)
 
-      Score.setChart(Score.data)
+      Score.setChart(Score.chartSettings)
 
   addFriendToChart: (score)->
-    if Score.data.datasets.length is 2 then Score.data.datasets.pop()
-    Score.data.datasets.push({
+    if Score.chartSettings.datasets.length is 2 then Score.chartSettings.datasets.pop()
+    Score.chartSettings.datasets.push({
      fillColor : "rgba(26, 188, 156,0.5)",
      strokeColor : "rgba(26, 188, 156,1)",
      pointColor : "rgba(26, 188, 156,1)",
@@ -103,9 +114,10 @@ window.Quiz =
 
   # Moves the test to the end with the default answer selected
   devTest: ->
-    for i in [0...70]
+    for i in [0...69]
       if Math.random() > 0.5 then $(".answer1").click() else $(".answer2").click()
       $('#next').click()
 
-jQuery ->
+$ ->
+  Score.init()
   Quiz.init()
