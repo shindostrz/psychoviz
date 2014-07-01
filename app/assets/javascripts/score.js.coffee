@@ -52,17 +52,7 @@ window.Score =
     return type
 
   setChart: (chartData)->
-    if ($(window).width() < 600)
-      $("#myChart").attr(
-        width: $(window).width(),
-        height: $(window).width()
-        )
-      $("#results").removeClass("column_10", "offset_1").css("margin-top", "10px");
-      $("#results").parent().css("width", "100%");
-    else
-      $("#myChart").attr(
-        width: "500px",
-        height: "500px"
-        )
-    ctx = document.getElementById("myChart").getContext("2d");
+    # Calling this again in case the window resized
+    Friend.calculateLayout()
+    ctx = document.getElementById("myChart").getContext("2d")
     myChart = new Chart(ctx).Radar(chartData)
