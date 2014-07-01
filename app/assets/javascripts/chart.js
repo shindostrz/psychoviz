@@ -235,7 +235,8 @@ window.Chart = function(context){
       animation : true,
       animationSteps : 60,
       animationEasing : "easeOutQuart",
-      onAnimationComplete : null
+      onAnimationComplete : null,
+      responsive: true
     };
 
     var config = (options)? mergeChartConfig(chart.Radar.defaults,options) : chart.Radar.defaults;
@@ -1422,5 +1423,4 @@ window.Chart = function(context){
       return data ? fn( data ) : fn;
     };
 }
-
 
