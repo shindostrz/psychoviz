@@ -4,7 +4,6 @@ window.Quiz =
     @q = 1
     @initListeners()
     @quizFlow()
-    @startQuiz()
 
   previousUser: ->
     if gon.personalityType?
@@ -21,20 +20,18 @@ window.Quiz =
       @scrollToAnchor 'about'
     $('#find-friends').click =>
       @getFriends()
+    $("#start_button").click =>
+      unless Quiz.quiz?
+        $.get("/quiz.json").done (data) ->
+          Quiz.quiz = data["quiz"]
+          Quiz.updateModal()
 
   updateModal: ->
     $("#question_content").html JST["templates/questions"](Quiz.quiz[@q - 1])
 
-  startQuiz: ->
-    $("#start_button").click  ->
-      Score.init()
-      Quiz.init()
-      $.get("/quiz.json").done (data) ->
-        Quiz.quiz = data["quiz"]
-        Quiz.updateModal()
-
   quizFlow: ->
-    $("#next").click =>
+    $("#next").click (e)=>
+      e.stopImmediatePropagation()
       if $(".answer1").is(":checked") is false and $(".answer2").is(":checked") is false
         alert "Please choose one answer"
       else
