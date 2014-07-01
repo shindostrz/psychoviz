@@ -114,7 +114,7 @@ window.Quiz =
 
   # Moves the test to the end with the default answer selected
   devTest: ->
-    for i in [0...69]
+    for i in [0...70]
       if Math.random() > 0.5 then $(".answer1").click() else $(".answer2").click()
       $('#next').click()
 
