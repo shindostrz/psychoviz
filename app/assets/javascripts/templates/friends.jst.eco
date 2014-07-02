@@ -1,9 +1,12 @@
 <span style="font-size:2em;">Friends</span><br />
-<% for friend, i in friends: %>
-  <% unless friend.score is null: %>
-    <a id='<%= i %>' href='#' class='friend-link' onclick='return false;''>
-      <img src='<%= friend.image %>'>
-      <div><%= friend.name %> (<%= friend.score.personality_type %>)</div>
-    </a>
+<% if friends.length is 0: %>
+  <span>No friends have used PsychViz yet :(</span>
+<% else: %>
+  <% for friend, i in friends: %>
+    <% unless friend.score is null: %>
+      <a id='<%= i %>' href='#' class='friend-link' onclick='return false;''>
+        <img src='<%= friend.image %>'>
+        <div><%= friend.name %> (<%= friend.score.personality_type %>)</div>
+      </a>
+    <% end %>
   <% end %>
-<% end %>
