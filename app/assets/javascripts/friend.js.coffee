@@ -1,4 +1,5 @@
 window.Friend =
+
   getFriends: ->
     $("#find-friends").hide()
     $(".loading").show()
@@ -6,16 +7,7 @@ window.Friend =
       $(".loading").hide()
       window.friends = data
       $("#friends").html JST["templates/friends"]()
-      if $(window).width() >= 960
-        Quiz.scrollToAnchor 'results'
-        $("#results").animate
-          width: "608px",
-          "margin-left": "0"
-          1000
-          ->
-            $("#friends").slideDown()
-      else
-        $("#friends").slideDown()
+      Friend.formatLayout()
       Friend.compareFriend()
 
   compareFriend: ->
@@ -42,8 +34,8 @@ window.Friend =
      data : [score["e"], score["i"], score["s"], score["n"], score["t"], score["f"], score["j"], score["p"]]
     });
 
-  calculateLayout: ->
-    if ($(window).width() < 960)
+  setCanvasSize: ->
+    if ($(window).width() < 768)
       $("#myChart").attr(
         width: $(window).width(),
         height: $(window).width()
@@ -55,3 +47,24 @@ window.Friend =
         width: "500px",
         height: "500px"
         )
+  formatLayout: ->
+    if $(window).width() >= 960
+        Quiz.scrollToAnchor 'results'
+        $("#results").animate
+          width: "608px",
+          "margin-left": "0"
+          1000
+          ->
+            $("#friends").slideDown()
+    else if (768 < $(window).width() < 960)
+      Quiz.scrollToAnchor("results")
+      $("#results").animate
+        width: "500px",
+        "margin": "0"
+        600
+        ->
+          $("#friends").slideDown()
+    else if ($(window).width() < 768)
+      $("#results").removeClass("column_10 offset_1").css("margin-top", "10px")
+      $("#results").parent().css("width", "100%")
+      $("#friends").slideDown()
