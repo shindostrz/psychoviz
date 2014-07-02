@@ -12,6 +12,7 @@ window.Quiz =
         # This stops the chart from loading multiple times after taking the test againand clicking
         # previous-results again. Still don't know why it's calling Score.setChart twice though.
         e.stopImmediatePropagation()
+        $(".friend-link").css("color", "#fff")
         Score.init()
         Quiz.finishQuiz(gon.personalityType)
 
@@ -78,4 +79,4 @@ window.Quiz =
 $ ->
   Score.init()
   Quiz.init()
-  Friend.calculateLayout()
+  Friend.setCanvasSize()
