@@ -2,6 +2,7 @@
 <% if friends.length is 0: %>
   <p>No friends have used PsychViz yet :(</p><br />
 <% else: %>
+<p>Share PsychViz on Facebook, then come back to see your friends' results!</p>
   <% for friend, i in friends: %>
     <% unless friend.score is null: %>
       <a id='<%= i %>' href='#' class='friend-link' onclick='return false;''>
@@ -11,4 +12,3 @@
     <% end %>
   <% end %>
 <% end %>
-<p>Share PsychViz on Facebook, then come back to see your friends' results!</p>
