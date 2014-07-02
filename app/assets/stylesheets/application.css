@@ -28,3 +28,8 @@
   section.landing h1{font-size:5em !important}
   section.landing h3{font-size:2em !important}
 }
+
+#friends {
+  overflow: scroll;
+  height: 600px;
+}
