@@ -31,26 +31,23 @@ window.Quiz =
     $("#question_content").html JST["templates/questions"](Quiz.quiz[@q - 1])
 
   quizFlow: ->
-    $("#next").click (e)=>
+    $("#modal-1").on "click", ".answer", (e)=>
       e.stopImmediatePropagation()
-      if $(".answer1").is(":checked") is false and $(".answer2").is(":checked") is false
-        alert "Please choose one answer"
+      if e.target.id == "answer_a" then answer_a = true else answer_a = false
+      Score.runningScore @q, answer_a
+      if @q < 70
+        @q++
       else
-        answer_a = $(".answer1").is(":checked")
-        Score.runningScore @q, answer_a
-        if @q < 70
-          @q++
-        else
-          finalScore = {e: Score.e*2, i: Score.i*2, s: Score.s, n: Score.n, t: Score.t, f: Score.f, j: Score.j, p: Score.p}
-          personalityType = Score.personalityType(finalScore)
-          @finishQuiz(personalityType)
-          @postScores(finalScore, personalityType)
-          Quiz.init()
-        @updateModal()
+        $(".md-close").trigger("click")
+        finalScore = {e: Score.e*2, i: Score.i*2, s: Score.s, n: Score.n, t: Score.t, f: Score.f, j: Score.j, p: Score.p}
+        personalityType = Score.personalityType(finalScore)
+        @finishQuiz(personalityType)
+        @postScores(finalScore, personalityType)
+        Quiz.init()
+      @updateModal()
 
   finishQuiz: (personalityType) ->
     $("#personality-type").html personalityType
-    $(".md-close").click()
     Quiz.scrollToAnchor "results", ->
       $(".results").slideDown 800, ->
         # Prevents the chart insertion from making the callback repeat - might be
@@ -73,8 +70,7 @@ window.Quiz =
   # Moves the test to the end with the default answer selected
   devTest: ->
     for i in [0...70]
-      if Math.random() > 0.5 then $(".answer1").click() else $(".answer2").click()
-      $('#next').click()
+      if Math.random() > 0.5 then $("#answer_a").click() else $("#answer_b").click()
 
 $ ->
   Score.init()

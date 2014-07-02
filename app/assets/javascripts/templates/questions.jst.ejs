@@ -2,9 +2,7 @@
 <div>
   <h4><%= Quiz.quiz[Quiz.q-1]["question"] %></h4>
   <p>
-    <form>
-      <input type="radio" class="answer1" name="answer_a"><%= Quiz.quiz[Quiz.q-1]["answer_a"] %></input><br><br>
-      <input type="radio" class="answer2" name="answer_a"><%= Quiz.quiz[Quiz.q-1]["answer_b"] %></input>
-    </form>
+    <button class="answer" id="answer_a"><%= Quiz.quiz[Quiz.q-1]["answer_a"] %></button><br>
+    <button class="answer" id="answer_b"><%= Quiz.quiz[Quiz.q-1]["answer_b"] %></button>
   </p>
 </div>
