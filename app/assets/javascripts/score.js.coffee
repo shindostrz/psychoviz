@@ -52,7 +52,5 @@ window.Score =
     return type
 
   setChart: (chartData)->
-    # Calling this again in case the window resized
-    Friend.calculateLayout()
     ctx = document.getElementById("myChart").getContext("2d")
     myChart = new Chart(ctx).Radar(chartData)
