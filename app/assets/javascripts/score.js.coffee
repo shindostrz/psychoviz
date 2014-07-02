@@ -52,5 +52,6 @@ window.Score =
     return type
 
   setChart: (chartData)->
+    Friend.setCanvasSize()
     ctx = document.getElementById("myChart").getContext("2d")
     myChart = new Chart(ctx).Radar(chartData)
