@@ -22,8 +22,8 @@ window.Friend =
         $(".friend-link:not(##{this.id})").css 'color', '#fff'
         clickedFriendScore = friends[this.id]["score"]
         Friend.addFriendToChart(clickedFriendScore)
-
-      Score.setChart(Score.chartSettings)
+      Quiz.scrollToAnchor "results", ->
+        Score.setChart(Score.chartSettings)
 
   addFriendToChart: (score)->
     if Score.chartSettings.datasets.length is 2 then Score.chartSettings.datasets.pop()
