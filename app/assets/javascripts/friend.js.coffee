@@ -2,6 +2,7 @@ window.Friend =
 
   getFriends: ->
     $("#find-friends").hide()
+    Quiz.scrollToAnchor "friends-anchor"
     $(".loading").show()
     $.get("/friends.json").done (data) ->
       $(".loading").hide()
