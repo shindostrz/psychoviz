@@ -9,6 +9,3 @@
         <img src='<%= friend.image %>'>
         <div><%= friend.name %> (<%= friend.score.personality_type %>)</div>
       </a>
-    <% end %>
-  <% end %>
-<% end %>
