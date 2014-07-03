@@ -22,8 +22,12 @@ window.Friend =
         $(".friend-link:not(##{this.id})").css 'color', '#fff'
         clickedFriendScore = friends[this.id]["score"]
         Friend.addFriendToChart(clickedFriendScore)
-      Quiz.scrollToAnchor "results", ->
+      if $(window).width() < 768
+        Quiz.scrollToAnchor "results", ->
+          Score.setChart(Score.chartSettings)
+      else
         Score.setChart(Score.chartSettings)
+
 
   addFriendToChart: (score)->
     if Score.chartSettings.datasets.length is 2 then Score.chartSettings.datasets.pop()
@@ -57,7 +61,7 @@ window.Friend =
           1000
           ->
             $("#friends").slideDown()
-    else if (768 < $(window).width() < 960)
+    else if (768 <= $(window).width() < 960)
       Quiz.scrollToAnchor("results")
       $("#results").animate
         width: "500px",
