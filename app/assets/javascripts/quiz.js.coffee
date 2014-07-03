@@ -1,5 +1,6 @@
 window.Quiz =
   init: ->
+    @firstTime = true
     @previousUser()
     @q = 1
     @initListeners()
