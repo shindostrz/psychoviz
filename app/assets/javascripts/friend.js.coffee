@@ -20,6 +20,7 @@ window.Friend =
         $(this).css("color", "#fff")
         Score.chartSettings.datasets.pop()
       else
+        Friend.currentFriend = friends[this.id]
         $(this).css 'color', 'rgb(26, 188, 156)'
         $(".friend-link:not(##{this.id})").css 'color', '#fff'
         clickedFriendScore = friends[this.id]["score"]
