@@ -33,3 +33,15 @@
   overflow: scroll;
   max-height: 600px;
 }
+
+#personality-type {
+  font-size: 2em;
+  width: 100px;
+  margin: 0 auto;
+  border-radius: 15px;
+  background-color: #2C3E50;
+  border-color: #1FA08C;
+  border-width: 2px;
+  border-style: groove;
+  cursor: pointer;
+}
