@@ -28,8 +28,9 @@ window.Quiz =
     $("#modal-1").on "click", "#begin", ->
       Quiz.updateModal()
     $("#post-to-facebook").click ->
-      $("#message-form").slideToggle()
-      $("textarea").html Score.message
+      $("#message-form").slideToggle ->
+        $("#message-form textarea").html Score.message
+        $("#message-form textarea").focus()
     $("#message-form").submit (e)->
       e.preventDefault()
       postCanvasToFacebook($("#message-form textarea").html())
