@@ -34,20 +34,12 @@ function postImageToFacebook( authToken, filename, mimeType, imageData, message 
     xhr.sendAsBinary( formData );
 };
 
-function postCanvasToFacebook() {
+function postCanvasToFacebook(message) {
   var canvas = document.getElementById("myChart");
   var data = canvas.toDataURL("image/png");
   var encodedPng = data.substring(data.indexOf(',') + 1, data.length);
   var decodedPng = Base64Binary.decode(encodedPng);
-  var message = function() {
-    if (Score.chartSettings.datasets.length == 1) {
-        return "I got " + gon.personalityType + "! Take the quiz and compare our personalities at http://psychviz.herokuapp.com";
-    } else {
-        return "My personality (" + gon.personalityType + ") compared with " + Friend.currentFriend.name + " (" +
-            Friend.currentFriend.score.personality_type + "). Take the quiz and compare our personalities at http://psychviz.herokuapp.com";
-    }
-  };
   FB.login(function(response) {
-    postImageToFacebook(response.authResponse.accessToken, "psychvizchart", "image/png", decodedPng, message());
+    postImageToFacebook(response.authResponse.accessToken, "psychvizchart", "image/png", decodedPng, message);
    }, {scope: "publish_actions"});
 }
