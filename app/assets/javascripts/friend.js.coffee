@@ -22,6 +22,7 @@ window.Friend =
         $(".friend-link:not(##{this.id})").css 'color', '#fff'
         clickedFriendScore = friends[this.id]["score"]
         Friend.addFriendToChart(clickedFriendScore)
+
       if $(window).width() < 768
         Quiz.scrollToAnchor "results", ->
           Score.setChart(Score.chartSettings)
