@@ -44,6 +44,7 @@ window.Score =
     if score.s>score.n then type.push("S") else type.push("N")
     if score.t>score.f then type.push("T") else type.push("F")
     if score.j>score.p then type.push("J") else type.push("P")
+    type = type.toString().replace(/,/g, "")
     gon.personalityType = type
     return type
 
