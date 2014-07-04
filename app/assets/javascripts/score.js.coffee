@@ -52,3 +52,10 @@ window.Score =
     Friend.setCanvasSize()
     ctx = document.getElementById("myChart").getContext("2d")
     myChart = new Chart(ctx).Radar(chartData)
+
+  message: ->
+    if (Score.chartSettings.datasets.length == 1)
+      return "I got " + gon.personalityType + "! Take the quiz and compare our personalities at http://psychviz.herokuapp.com";
+    else
+      return "My personality (" + gon.personalityType + ") compared with " + Friend.currentFriend.name + " (" +
+          Friend.currentFriend.score.personality_type + "). Take the quiz and compare our personalities at http://psychviz.herokuapp.com";
