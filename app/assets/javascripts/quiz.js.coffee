@@ -29,6 +29,8 @@ window.Quiz =
       Quiz.updateModal()
     $("#post-to-facebook").click ->
       postCanvasToFacebook()
+    $("#devs").click =>
+      @scrollToAnchor 'devs'
 
   updateModal: ->
     $("#question_content").html JST["templates/questions"]()
