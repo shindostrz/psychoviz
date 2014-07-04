@@ -1,22 +1,10 @@
-<% if Quiz.firstTime == true: %>
-  <h3>Get ready!</h3>
-  <p>This quiz has 70 questions. Click the answer that feels more accurate for you and don't overthink it. There are no wrong answers.</p>
-  <p>You can close the quiz and return to the last question by clicking the start button.</p>
-  <button class="large" id="begin">Begin!</button>
-  <% $("#modal-1").on "click", "#begin", ->: %>
-    <% Quiz.firstTime = false %>
-    <% Quiz.updateModal() %>
-  <% end %>
-
-<% else: %>
-
-  <h3>Question <%= Quiz.q %></h3>
-  <div>
-    <% for qAndA in Quiz.quiz: %>
-      <% if qAndA["q_num"] == Quiz.q: %>
-        <h4><%= qAndA["question"] %></h4>
-        <p>
-          <button class="answer" id="answer_a"><%= qAndA["answer_a"] %></button><br>
-          <button class="answer" id="answer_b"><%= qAndA["answer_b"] %></button>
-        </p>
-  </div>
+<h3>Question <%= Quiz.q %></h3>
+<div>
+  <% for qAndA in Quiz.quiz: %>
+    <% if qAndA["q_num"] == Quiz.q: %>
+      <h4><%= qAndA["question"] %></h4>
+      <p>
+        <button class="answer" id="answer_a"><%= qAndA["answer_a"] %></button><br>
+        <button class="answer" id="answer_b"><%= qAndA["answer_b"] %></button>
+      </p>
+</div>

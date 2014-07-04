@@ -26,7 +26,8 @@ window.Quiz =
       unless Quiz.quiz?
         $.get("/quiz.json").done (data) ->
           Quiz.quiz = data["quiz"]
-          Quiz.updateModal()
+    $("#modal-1").on "click", "#begin", ->
+        Quiz.updateModal()
 
   updateModal: ->
     $("#question_content").html JST["templates/questions"]()
