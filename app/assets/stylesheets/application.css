@@ -45,3 +45,10 @@
   border-style: groove;
   cursor: pointer;
 }
+
+#devs img {
+  width: 100%;
+}
+#devs a {
+  font-size: 1.2em;
+}
