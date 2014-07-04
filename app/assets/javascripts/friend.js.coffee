@@ -4,7 +4,7 @@ window.Friend =
     $("#find-friends").hide()
     $(".loading").show()
     $("html,body").animate
-      scrollTop: $(".loading").offset().top - 200
+      scrollTop: $(".loading").offset().top - ($(window).height() /3)
     , "slow", "swing"
     $.get("/friends.json").done (data) ->
       $(".loading").hide()
