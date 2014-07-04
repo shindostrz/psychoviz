@@ -26,7 +26,9 @@ window.Quiz =
         $.get("/quiz.json").done (data) ->
           Quiz.quiz = data["quiz"]
     $("#modal-1").on "click", "#begin", ->
-        Quiz.updateModal()
+      Quiz.updateModal()
+    $("#post-to-facebook").click ->
+      postCanvasToFacebook()
 
   updateModal: ->
     $("#question_content").html JST["templates/questions"]()
