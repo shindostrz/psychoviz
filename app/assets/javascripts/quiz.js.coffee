@@ -28,7 +28,11 @@ window.Quiz =
     $("#modal-1").on "click", "#begin", ->
       Quiz.updateModal()
     $("#post-to-facebook").click ->
-      postCanvasToFacebook()
+      $("#message-form").slideToggle()
+      $("textarea").html Score.message
+    $("#message-form").submit (e)->
+      e.preventDefault()
+      postCanvasToFacebook($("#message-form textarea").html())
     $("#devs").click =>
       @scrollToAnchor 'devs'
 
