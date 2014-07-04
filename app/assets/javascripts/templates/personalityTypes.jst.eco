@@ -46,3 +46,8 @@
   <% else if @personality is "ENTJ": %>
   <h1>Extroversion, iNtuition, Thinking Judging</h1>
   <p>Strategic, logical, efficient, outgoing, ambitious, independent. Effective organizers of people and long-range planners.</p>
+  <% end %>
+  <% if @personality != "ISTP": %>
+    <a href="http://en.wikipedia.org/wiki/<%= @personality %>">More info</a>
+  <% else: %>
+    <a href="http://en.wikipedia.org/wiki/ISTP_(personality_type)">More info</a>
