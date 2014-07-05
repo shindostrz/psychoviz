@@ -4,6 +4,7 @@ window.Quiz =
     @q = 1
     @initListeners()
     @quizFlow()
+    @mobile = if $(window).width() < 768 then true else false
     $("#message-form").hide()
 
   previousUser: ->
@@ -37,6 +38,8 @@ window.Quiz =
       postCanvasToFacebook($("#message-form textarea").html())
     $("#devs").click =>
       @scrollToAnchor 'devs'
+    $(window).resize =>
+      @mobile = if $(window).width() < 768 then true else false
 
   updateModal: ->
     $("#question_content").html JST["templates/questions"]()
