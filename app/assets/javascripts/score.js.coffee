@@ -52,6 +52,9 @@ window.Score =
     Friend.setCanvasSize()
     ctx = document.getElementById("myChart").getContext("2d")
     myChart = new Chart(ctx).Radar(chartData)
+    if Quiz.mobile == true
+      ctx = document.getElementById("hiddenCanvas").getContext("2d");
+      hiddenCanvas = new Chart(ctx).Radar(chartData, {animation:false});
 
   message: ->
     if (Score.chartSettings.datasets.length == 1)
