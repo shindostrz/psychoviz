@@ -57,7 +57,6 @@ window.Quiz =
         personalityType = Score.personalityType(finalScore)
         @finishQuiz(personalityType)
         @postScores(finalScore, personalityType)
-        Quiz.init()
       @updateModal()
 
   finishQuiz: (personalityType) ->
