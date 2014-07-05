@@ -86,7 +86,7 @@ window.Friend =
       $("#results").css
           width: "608px",
           "margin-left": "0"
-    else if (768 < $(window).width() < 960)
+    else if (768 <= $(window).width() < 960)
       $("#results").css
         width: "500px",
         "margin": "0"
