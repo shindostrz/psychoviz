@@ -4,6 +4,7 @@ window.Quiz =
     @q = 1
     @initListeners()
     @quizFlow()
+    $("#message-form").hide()
 
   previousUser: ->
     if gon.personalityType?
