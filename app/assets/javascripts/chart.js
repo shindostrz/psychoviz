@@ -570,8 +570,12 @@ window.Chart = function(context){
     }
     function drawScale(){
       // Customized background
-      ctx.fillStyle = "#34495E"
-      ctx.fillRect(0,0,500,500);
+      ctx.fillStyle = "#34495E";
+      if (Quiz.mobile === true && ctx.canvas.id =="myChart"){
+        ctx.fillRect(0,0,$(window).width(),$(window).width());
+      } else {
+        ctx.fillRect(0,0,500,500);
+      }
       var rotationDegree = (2*Math.PI)/data.datasets[0].data.length;
       ctx.save();
         ctx.translate(width / 2, height / 2);
