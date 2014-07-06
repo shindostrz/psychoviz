@@ -40,7 +40,7 @@ function postImageToFacebook( authToken, filename, mimeType, imageData, message 
 }
 
 function postCanvasToFacebook(message) {
-    var canvas = canvas = document.getElementById("hiddenCanvas");
+    var canvas = document.getElementById("hiddenCanvas");
     var data = canvas.toDataURL("image/png");
     var encodedPng = data.substring(data.indexOf(',') + 1, data.length);
     var decodedPng = Base64Binary.decode(encodedPng);
