@@ -55,7 +55,7 @@ window.Score =
     setTimeout ->
       hiddenCtx = document.getElementById("hiddenCanvas").getContext("2d");
       hiddenCanvas = new Chart(hiddenCtx).Radar(chartData, {animation:false});
-     , 1000
+     , 3000
 
   message: ->
     if (Score.chartSettings.datasets.length == 1)
