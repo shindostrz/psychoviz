@@ -52,10 +52,6 @@ window.Score =
     Friend.setCanvasSize()
     ctx = document.getElementById("myChart").getContext("2d")
     myChart = new Chart(ctx).Radar(chartData)
-    setTimeout ->
-      hiddenCtx = document.getElementById("hiddenCanvas").getContext("2d");
-      hiddenCanvas = new Chart(hiddenCtx).Radar(chartData, {animation:false});
-     , 3000
 
   message: ->
     if (Score.chartSettings.datasets.length == 1)

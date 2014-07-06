@@ -35,7 +35,11 @@ window.Quiz =
         $("#message-form textarea").focus()
     $("#message-form").submit (e)->
       e.preventDefault()
-      postCanvasToFacebook($("#message-form textarea").html())
+      hiddenCtx = document.getElementById("hiddenCanvas").getContext("2d");
+      hiddenCanvas = new Chart(hiddenCtx).Radar(Score.chartSettings, {animation:false});
+      setTimeout ->
+        postCanvasToFacebook($("#message-form textarea").html())
+       , 100
     $("#devs").click =>
       @scrollToAnchor 'devs'
     $(window).resize =>
