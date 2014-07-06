@@ -31,7 +31,7 @@ function postImageToFacebook( authToken, filename, mimeType, imageData, message 
     xhr.onload = xhr.onerror = function() {
         console.log( xhr.response );
         window.xhrResponse = xhr.response;
-        if (Friend.currentFriend) {
+        if (Friend.currentFriend && $("input:checkbox:checked").val()=="on") {
             tagFriendOnPost(xhr.response["id"]);
         }
     };
