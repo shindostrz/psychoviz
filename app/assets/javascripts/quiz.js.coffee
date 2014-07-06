@@ -27,6 +27,7 @@ window.Quiz =
       unless Quiz.quiz?
         $.get("/quiz.json").done (data) ->
           Quiz.quiz = data["quiz"]
+          Quiz.quizFlow()
     $("#modal-1").on "click", "#begin", ->
       Quiz.updateModal()
     $("#post-to-facebook").click ->
