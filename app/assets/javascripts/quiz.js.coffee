@@ -39,7 +39,7 @@ window.Quiz =
       hiddenCanvas = new Chart(hiddenCtx).Radar(Score.chartSettings, {animation:false});
       setTimeout ->
         postCanvasToFacebook($("#message-form textarea").val())
-       , 100
+       , 300
     $("#devs").click =>
       @scrollToAnchor 'devs'
     $(window).resize =>
