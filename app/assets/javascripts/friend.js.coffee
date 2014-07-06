@@ -19,6 +19,7 @@ window.Friend =
       if $(this).css("color") is "rgb(26, 188, 156)" and Score.chartSettings.datasets.length == 2
         $(this).css("color", "#fff")
         Score.chartSettings.datasets.pop()
+        Friend.currentFriend = null
       else
         Friend.currentFriend = friends[this.id]
         $(this).css 'color', 'rgb(26, 188, 156)'

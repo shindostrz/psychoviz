@@ -27,8 +27,13 @@ function postImageToFacebook( authToken, filename, mimeType, imageData, message 
 
     var xhr = new XMLHttpRequest();
     xhr.open( 'POST', 'https://graph.facebook.com/me/photos?access_token=' + authToken, true );
+    xhr.responseType = "json";
     xhr.onload = xhr.onerror = function() {
-        console.log( xhr.responseText );
+        console.log( xhr.response );
+        window.xhrResponse = xhr.response;
+        if (Friend.currentFriend) {
+            tagFriendOnPost(xhr.response["id"]);
+        }
     };
     xhr.setRequestHeader( "Content-Type", "multipart/form-data; boundary=" + boundary );
     xhr.sendAsBinary( formData );
@@ -46,6 +51,23 @@ function postCanvasToFacebook(message) {
     var encodedPng = data.substring(data.indexOf(',') + 1, data.length);
     var decodedPng = Base64Binary.decode(encodedPng);
     FB.login(function(response) {
-    postImageToFacebook(response.authResponse.accessToken, "psychvizchart", "image/png", decodedPng, message);
+        postImageToFacebook(response.authResponse.accessToken, "psychvizchart", "image/png", decodedPng, message);
     }, {scope: "publish_actions"});
+
+}
+
+function tagFriendOnPost(postId) {
+    var friendId = Friend.currentFriend.uid;
+    FB.api(
+        "/"+postId+"/tags",
+        "POST",
+        {
+            "tags": "[{'tag_uid': '"+friendId+"'}]"
+        },
+        function (response) {
+          // if (response && !response.error) {
+            console.log(response);
+          // }
+        }
+    );
 }

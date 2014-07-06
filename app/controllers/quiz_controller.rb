@@ -22,7 +22,7 @@ class QuizController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => user_friends, :only => [:id, :name, :image, :score]}
+      format.json { render :json => user_friends, :only => [:id, :uid, :name, :image, :score]}
     end
 
   end
