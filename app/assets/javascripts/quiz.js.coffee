@@ -41,6 +41,9 @@ window.Quiz =
         })
     $("#devs").click =>
       @scrollToAnchor 'devs'
+    $("a[name=disclaimer").click (e)->
+      e.preventDefault()
+      $("#disclaimer").slideToggle()
     $(window).resize =>
       @mobile = if $(window).width() < 768 then true else false
 
