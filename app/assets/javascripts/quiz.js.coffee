@@ -41,6 +41,7 @@ window.Quiz =
     $(window).resize =>
       @mobile = if $(window).width() < 768 then true else false
 
+
   updateModal: ->
     $("#question_content").html JST["templates/questions"]()
 
