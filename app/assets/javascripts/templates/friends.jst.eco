@@ -1,6 +1,7 @@
 <span style="font-size:2em;">Friends</span><br />
 <% if friends.length is 0: %>
   <p>No friends have used PsychViz yet :(</p><br />
+  <p>Share PsychViz on Facebook, then come back to see your friends' results!</p>
 <% else: %>
 <p>Share PsychViz on Facebook, then come back to see your friends' results!</p>
   <% for friend, i in friends: %>
