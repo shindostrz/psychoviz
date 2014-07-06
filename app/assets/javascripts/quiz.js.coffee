@@ -38,7 +38,7 @@ window.Quiz =
       hiddenCtx = document.getElementById("hiddenCanvas").getContext("2d");
       hiddenCanvas = new Chart(hiddenCtx).Radar(Score.chartSettings, {animation:false});
       setTimeout ->
-        postCanvasToFacebook($("#message-form textarea").html())
+        postCanvasToFacebook($("#message-form textarea").val())
        , 100
     $("#devs").click =>
       @scrollToAnchor 'devs'
