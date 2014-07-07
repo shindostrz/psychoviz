@@ -24,10 +24,7 @@ window.Quiz =
     $('#find-friends').click =>
       Friend.getFriends()
     $("#start_button").click =>
-      unless Quiz.quiz?
-        $.get("/quiz.json").done (data) ->
-          Quiz.quiz = data["quiz"]
-          Quiz.quizFlow()
+        Quiz.quizFlow()
     $("#modal-1").on "click", "#begin", ->
       Quiz.updateModal()
     $("#post-to-facebook").click ->
