@@ -55,7 +55,7 @@ window.Score =
 
   message: ->
     if (Score.chartSettings.datasets.length == 1)
-      return "I got " + gon.personalityType + "! Take the quiz and compare our personalities at http://psychviz.herokuapp.com";
+      return "I got " + gon.personalityType + "! Take the quiz and compare our personalities at http://www.PsychViz.com";
     else
       return "My personality (" + gon.personalityType + ") compared with " + Friend.currentFriend.name.split(" ")[0] + "'s (" +
-          Friend.currentFriend.score.personality_type + ", shown in green). Take the quiz and compare our personalities at http://psychviz.herokuapp.com";
+          Friend.currentFriend.score.personality_type + ", shown in green). Take the quiz and compare our personalities at http://www.PsychViz.com";
