@@ -42,7 +42,7 @@ window.Quiz =
         })
     $("#devs").click =>
       @scrollToAnchor 'devs'
-    $("a[name=disclaimer").click (e)->
+    $("a[name=disclaimer]").click (e)->
       e.preventDefault()
       $("#disclaimer").slideToggle()
     $(window).resize =>
