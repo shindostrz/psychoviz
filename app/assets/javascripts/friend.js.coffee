@@ -82,7 +82,8 @@ window.Friend =
       $("#results").removeClass("column_10 offset_1").css("margin-top", "10px")
       $("#results").parent().css("width", "100%")
       $("#results").css("width", "100%")
-      $("#friends").slideDown()
+      Quiz.scrollToAnchor "friends-section", ->
+        $("#friends").slideDown()
     $(window).resize ->
       Friend.resizeLayout()
 
