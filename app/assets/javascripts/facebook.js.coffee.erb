@@ -14,7 +14,7 @@ window.fbAsyncInit = ->
     e.preventDefault()
     FB.login (response) ->
       window.location = '/auth/facebook/callback' if response.authResponse
-    ,scope: 'user_friends'
+    ,scope: 'user_friends, user_location'
 
   $('#sign_out').click (e) ->
     FB.getLoginStatus (response) ->
