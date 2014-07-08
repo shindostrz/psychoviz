@@ -23,28 +23,28 @@
   <h1>Introversion, iNuition, Thinking, Perception</h1>
   <p>Intellectual, logical, precise, reserved, flexible, imaginative. Original thinkers who enjoy speculation and creative problem solving.</p>
   <% else if @personality is "ESTP": %>
-  <h1>Extroversion, Sensing, Thinking, Perception</h1>
+  <h1>Extraversion, Sensing, Thinking, Perception</h1>
   <p>Outgoing, realistic, action-oriented, curious, versatile, spontaneous. Pragmatic problem solvers and skillful negotiators.</p>
   <% else if @personality is "ESFP": %>
-  <h1>Extroversion, Sensing, Feeling, Perception</h1>
+  <h1>Extraversion, Sensing, Feeling, Perception</h1>
   <p>Playful, enthusiastic, friendly, spontaneous, tactful, flexible. Have strong common sense, enjoy helping people in tangible ways.</p>
   <% else if @personality is "ENFP": %>
-  <h1>Extroversion, iNtuition, Feeling, Perception</h1>
+  <h1>Extraversion, iNtuition, Feeling, Perception</h1>
   <p>Enthusiastic, creative, spontaneous, optimistic, supportive, playful. Value inspiration, enjoy starting new projects, see potential in others.</p>
   <% else if @personality is "ENTP": %>
-  <h1>Extroversion, iNtuition, Thinking, Perception</h1>
+  <h1>Extraversion, iNtuition, Thinking, Perception</h1>
   <p>Inventive, enthusiastic, strategic, enterprising, inquisitive, versatile. Enjoy new ideas and challenges, value inspiration.</p>
   <% else if @personality is "ESTJ": %>
-  <h1>Extroversion, Sensing, Thinking, Judging</h1>
+  <h1>Extraversion, Sensing, Thinking, Judging</h1>
   <p>Efficient, outgoing, analytical, systematic, dependable, realistic. Like to run the show and get things done in an orderly fashion.</p>
   <% else if @personality is "ESFJ": %>
-  <h1>Extroversion, Sensing, Feeling, Judging</h1>
+  <h1>Extraversion, Sensing, Feeling, Judging</h1>
   <p>Friendly, outgoing, reliable, conscientious, organized, practical. Seek to be helpful and please others, enjoy being active and productive.</p>
   <% else if @personality is "ENFJ": %>
-  <h1>Extroversion, iNtuition, Feeling, Judging</h1>
+  <h1>Extraversion, iNtuition, Feeling, Judging</h1>
   <p>Caring, enthusiastic, idealistic, organized, diplomatic, responsible. Skilled communicators who value connection with people.</p>
   <% else if @personality is "ENTJ": %>
-  <h1>Extroversion, iNtuition, Thinking Judging</h1>
+  <h1>Extraversion, iNtuition, Thinking Judging</h1>
   <p>Strategic, logical, efficient, outgoing, ambitious, independent. Effective organizers of people and long-range planners.</p>
   <% end %>
   <% if @personality != "ISTP": %>
