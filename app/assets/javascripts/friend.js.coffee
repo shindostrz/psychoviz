@@ -32,7 +32,7 @@ window.Friend =
         $("#checkbox").show()
 
       if $(window).width() < 768
-        Quiz.scrollToAnchor "results", ->
+        Quiz.scrollToAnchor "personality-type", ->
           Score.setChart(Score.chartSettings)
       else
         Score.setChart(Score.chartSettings)
